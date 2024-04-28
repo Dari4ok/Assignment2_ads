@@ -1,67 +1,105 @@
+
 public class MyArrayList<T> implements MyList<T>{
     private T[] arr = (T[]) new Object[5];
     private int size;
+
 
     public MyArrayList() {
         size = 0;
     }
 
+
+    @Override
     public void addElement(T element) {
         if (size == arr.length) {
             increaseList();
         }
         arr[size] = element;
-        size++;
+        size += 1;
     }
 
-
-    public void addElement(int index, T element) {
+    @Override
+    public void setElement(int index, T element) {
         checkIndex(index);
-        if (size == arr.length) {
-            increaseList();
-        }
         arr[index] = element;
     }
 
-
-    public T getElement(int index) {
+    @Override
+    public void addElement(int index, T element) {
         checkIndex(index);
-        return arr[index];
+
+
     }
 
-    public void removeElement(int index) {
-        checkIndex(index);
-        T[] Temp = (T[]) new Object[size - 1];
-        for (int i = index; i < size - 1; i++) {
-            if (i != index) {
-                Temp[i] = arr[i];
-            }
-            else{
-                i--;
-            }
-        }
+    @Override
+    public void addFirst(T element) {
+
     }
 
-    public T getFirst(){
-        checkIndex(0);
-        return arr[0];
+    @Override
+    public void addLast(T element) {
+
     }
 
-    public T getLast(){
-        checkIndex(size - 1);
-        return arr[size - 1];
+    @Override
+    public T getElement(int i) {
+        return null;
     }
 
-    public int getFirstIndex(T element){
-        for (int i = 0; i < size; i++) {
-            if (arr[i].equals(element)) {
-                return i;
-            }
-        }
-        return -1;
+    @Override
+    public T getFirst() {
+        return null;
     }
 
+    @Override
+    public T getLast() {
+        return null;
+    }
 
+    @Override
+    public T removeElement(int index) {
+        return null;
+    }
+
+    @Override
+    public void removeFirst() {
+
+    }
+
+    @Override
+    public void removeLast() {
+
+    }
+
+    @Override
+    public void getIndex(T element) {
+
+    }
+
+    @Override
+    public T[] toArray() {
+        return null;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public void sort() {
+
+    }
+
+    @Override
+    public int getSize() {
+        return 0;
+    }
+
+    @Override
+    public void pop(int index) {
+
+    }
 
     private void increaseList(){
         T[] newArr = (T[]) new Object[arr.length*2];
@@ -78,6 +116,5 @@ public class MyArrayList<T> implements MyList<T>{
             throw new IndexOutOfBoundsException("Index not correct");
         }
     }
-
 
 }
